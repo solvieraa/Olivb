@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Undangan Pernikahan — Radot & Oliv</title>
+  <style>
+    :root{
+      --red:#c21a1a;
+      --dark:#0b0b0b;
+      --bg-gradient: linear-gradient(135deg, rgba(194,26,26,1) 0%, rgba(20,0,0,1) 100%);
+      --glass: rgba(255,255,255,0.04);
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial;color:#fff;background:var(--bg-gradient);}
+    .container{max-width:980px;margin:30px auto;padding:22px}
+    header{display:flex;align-items:center;gap:12px}
+    .logo{width:56px;height:56px;border-radius:12px;background:var(--dark);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--red);box-shadow:0 6px 24px rgba(0,0,0,0.6)}
+    h1{font-size:22px;margin:0}
+    p.lead{margin:4px 0 0;color:rgba(255,255,255,0.86)}
+    .card{background:rgba(255,255,255,0.05);backdrop-filter: blur(6px);border-radius:16px;padding:18px;margin-top:18px;box-shadow:0 6px 30px rgba(0,0,0,0.6)}
+    .hero{display:grid;grid-template-columns:1fr;gap:18px;align-items:center}
+    .names .big{font-size:28px;font-weight:700}
+    .names .small{font-size:14px;opacity:0.9}
+    .photo-wrap{position:relative;border-radius:12px;overflow:hidden;height:320px;background:#111;display:flex;align-items:center;justify-content:center}
+    .photo-wrap img{width:100%;height:100%;object-fit:cover;filter:brightness(0.7)}
+    .hearts{position:absolute;inset:0;pointer-events:none}
+    .heart{position:absolute;width:28px;height:28px}
+    @keyframes floatUp{0%{transform:translateY(20px) scale(0.8);opacity:0}10%{opacity:1}100%{transform:translateY(-140px) scale(1.2);opacity:0}}
+    .h1{left:10%;bottom:20px;animation:floatUp 5s linear infinite}
+    .h2{left:30%;bottom:10px;animation:floatUp 6s linear infinite;animation-delay:1s}
+    .h3{left:50%;bottom:30px;animation:floatUp 4.5s linear infinite;animation-delay:0.6s}
+    .h4{left:70%;bottom:15px;animation:floatUp 5.8s linear infinite;animation-delay:1.4s}
+    .h5{left:85%;bottom:25px;animation:floatUp 6.2s linear infinite;animation-delay:0.3s}
+    .center-heart{position:absolute;right:18px;top:18px}
+    .pulse{width:48px;height:48px;animation:pulse 1.8s ease-in-out infinite}
+    @keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.18)}100%{transform:scale(1)}}
+    .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+    .info{padding:12px;border-radius:10px;background:var(--glass);}
+    .rsvp{display:flex;gap:8px;margin-top:14px}
+    .btn{padding:10px 14px;border-radius:10px;border:2px solid rgba(255,255,255,0.06);background:transparent;color:inherit;font-weight:600}
+    .btn.primary{background:var(--red);border-color:var(--red)}
+    footer{margin-top:22px;text-align:center;color:rgba(255,255,255,0.7);font-size:13px}
+    @media(min-width:720px){.hero{grid-template-columns:1fr 420px}.photo-wrap{height:420px}}
+  </style>
+</head>
+<body>
+  <!-- Musik latar romantis -->
+  <audio id="bg-music" autoplay loop>
+    <!-- Ganti link src di bawah dengan lagu romantis favorit (format .mp3/.ogg) -->
+    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="container">
+    <header>
+      <div class="logo">RD</div>
+      <div>
+        <h1>Undangan Pernikahan</h1>
+        <p class="lead">Radot Manik ❤️ Oliv Tambun</p>
+      </div>
+    </header>
+
+    <div class="card">
+      <section class="hero">
+        <div>
+          <div class="names">
+            <div class="big">Radot Manik & Oliv Tambun</div>
+            <div class="small">Kami mengundang Anda hadir di hari bahagia kami</div>
+          </div>
+
+          <div class="info-grid">
+            <div class="info">
+              <strong>Akad</strong>
+              <div>Sabtu, 20 Desember 2025<br>10:00 WIB</div>
+              <small>Greja GKPS pegagan hilir</small>
+            </div>
+            <div class="info">
+              <strong>Resepsi</strong>
+              <div>Sabtu, 20 Desember 2025<br>13:00 — selesai</div>
+              <small>Gedung sma Negeri 1</small>
+            </div>
+          </div>
+
+          <div class="rsvp">
+            <button class="btn primary" onclick="openRSVP()">Konfirmasi Kehadiran</button>
+            <button class="btn" onclick="shareInvite()">Bagikan</button>
+          </div>
+        </div>
+
+        <div class="photo-wrap">
+          <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop" alt="Foto Pengantin">
+          <div class="hearts">
+            <div class="heart h1">❤️</div>
+            <div class="heart h2">❤️</div>
+            <div class="heart h3">❤️</div>
+            <div class="heart h4">❤️</div>
+            <div class="heart h5">❤️</div>
+          </div>
+          <div class="center-heart">
+            <div class="pulse">❤️</div>
+          </div>
+        </div>
+      </section>
+
+      <section style="margin-top:16px">
+        <h3>Cerita Singkat</h3>
+        <p>Bergandengan tangan, kami mengundang keluarga dan sahabat untuk merayakan cinta kami. Terima kasih atas doa dan kehadiranmu.</p>
+      </section>
+    </div>
+
+    <footer>
+      Dibuat dengan cinta ❤️ • Radot & Oliv
+    </footer>
+  </div>
+
+  <script>
+    function openRSVP(){
+      const name = prompt('Masukkan nama Anda untuk konfirmasi:');
+      if(name){ alert('Terima kasih, ' + name + '! Konfirmasi Anda tercatat.'); }
+    }
+    function shareInvite(){
+      if(navigator.share){
+        navigator.share({
+          title:'Undangan Radot & Oliv',
+          text:'Kamu diundang ke pernikahan Radot & Oliv — cek detilnya!',
+          url:location.href
+        }).catch(()=>{});
+      } else {
+        navigator.clipboard.writeText(location.href).then(()=>alert('Link undangan disalin!'));
+      }
+    }
+  </script>
+</body>
+</html>
